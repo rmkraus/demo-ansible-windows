@@ -1,0 +1,4 @@
+- name: ensure ansible is installed
+  yum:
+    name: ansible,vim,python2-winrm,git
+    state: installed

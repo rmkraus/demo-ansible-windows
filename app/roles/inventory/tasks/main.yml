@@ -1,0 +1,33 @@
+- name: populate inventory rhel
+  add_host:
+    name: "{{ item.name }}"
+    groups: "{{ item.grp }}"
+    ansible_host: "{{ item.name }}.{{ lookup('env', 'DEMO_PREFIX') }}.{{ lookup('env', 'AWS_R53_DOMAIN') }}"
+    ansible_ssh_private_key_file: '/data/id_rsa'
+    ansible_user: ec2-user
+    ansible_connection: ssh
+    ansible_become: yes
+  loop: "{{ inventory_hosts }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: "item.type == 'linux'"
+  changed_when: no
+  tags:
+    - inventory
+
+- name: populate inventory win
+  add_host:
+    name: "{{ item.name }}"
+    groups: "{{ item.grp }}"
+    ansible_host: "{{ item.name }}.{{ lookup('env', 'DEMO_PREFIX') }}.{{ lookup('env', 'AWS_R53_DOMAIN') }}"
+    ansible_ssh_private_key_file: '/data/id_rsa'
+    ansible_user: Administrator
+    ansible_connection: winrm
+    ansible_become: no
+  loop: "{{ inventory_hosts }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: "item.type == 'win'"
+  changed_when: no
+  tags:
+    - inventory

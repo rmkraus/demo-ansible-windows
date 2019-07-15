@@ -1,0 +1,22 @@
+inventory_hosts:
+  - name: tower
+    grp: tower_grp
+    type: linux
+  - name: win-0
+    grp: win
+    type: win
+  - name: win-1
+    grp: win
+    type: win
+  - name: win-2
+    grp: win
+    type: win
+  - name: rhel-0
+    grp: rhel
+    type: linux
+  - name: rhel-1
+    grp: rhel
+    type: linux
+  - name: rhel-2
+    grp: rhel
+    type: linux
