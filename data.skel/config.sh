@@ -8,6 +8,7 @@ export AWS_DEFAULT_REGION="us-east-1"
 export AWS_AVAILABILITY_ZONE="us-east-1a"
 export AWS_R53_ZONE_ID="ABCDEFG12345"
 export AWS_R53_DOMAIN="example.com"
+export AWS_WIN_PASS_KEY="key_name"
 
 # TOWER CONFIGURATION
 export TOWER_VERSION='3.5.1-1'
@@ -34,3 +35,4 @@ export TF_VAR_aws_availability_zone=${AWS_AVAILABILITY_ZONE}
 export TF_VAR_aws_r53_zone_id=${AWS_R53_ZONE_ID}
 export TF_VAR_demo_prefix="${DEMO_PREFIX}"
 export TF_VAR_tower_instance_type="t3.medium"
+export TF_VAR_win_pass_key="${AWS_WIN_PASS_KEY=}"

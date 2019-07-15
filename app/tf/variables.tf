@@ -25,3 +25,6 @@ variable demo_prefix {
 variable tower_instance_type {
     type = "string"
 }
+variable win_pass_key {
+    type = "string"
+}

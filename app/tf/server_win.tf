@@ -5,7 +5,7 @@ resource "aws_instance" "win" {
   instance_type             = "${var.app_instance_type}"
   subnet_id                 = "${aws_subnet.main.id}"
   vpc_security_group_ids    = ["${aws_security_group.main.id}"]
-  key_name                  = "rkraus-keys"
+  key_name                  = "${var.win_pass_key}"
   availability_zone         = "${var.aws_availability_zone}"
   depends_on                = ["aws_subnet.main"]
 
